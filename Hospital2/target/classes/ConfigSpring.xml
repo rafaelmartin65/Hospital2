@@ -29,7 +29,7 @@
 		<bean id="dataSource"
 			class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName"
-			value="com.mysql.jdbc.Driver">
+			value="com.mysql.jc.jdbc.Driver">
 		</property>
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/hospital">

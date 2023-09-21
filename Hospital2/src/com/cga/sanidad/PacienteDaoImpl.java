@@ -5,8 +5,10 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Component;
 
 
+@Component("PacienteDao")
 public class PacienteDaoImpl implements PacienteDao {
 	
 	
@@ -32,7 +34,7 @@ public class PacienteDaoImpl implements PacienteDao {
 		map.addValue("apellidos", paciente.getApellidos());
 		map.addValue("edad", paciente.getEdad());
 		map.addValue("telefono", paciente.getTelefono());
-		map.addValue("direccion", paciente.getDireccion());
+		map.addValue("direccion", null);
 		map.addValue("historial", paciente.getHistorial());
 		
 		
