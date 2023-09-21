@@ -8,6 +8,8 @@ public class Principal {
 	public static void main(String[] args) {
 		ApplicationContext apc = new ClassPathXmlApplicationContext("ConfigSpring.xml");
 		
+		
+		
 		Paciente pac = (Paciente) apc.getBean("pac");
 		
 		pac.imprimirHistorial();
