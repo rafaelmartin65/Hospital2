@@ -59,6 +59,35 @@ public class Paciente {
 	public void setHistorial(String historial) {
 		this.historial = historial;
 	}
+	
+
+	public int getIdPaciente() {
+		return idPaciente;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public int getEdad() {
+		return edad;
+	}
+
+	public int getTelefono() {
+		return telefono;
+	}
+
+	public Direccion getDireccion() {
+		return direccion;
+	}
+
+	public String getHistorial() {
+		return historial;
+	}
 
 	@Override
 	public String toString() {
