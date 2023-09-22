@@ -27,20 +27,20 @@ public class PacienteDaoImpl implements PacienteDao {
 	@Override
 	public boolean save(Paciente paciente) {
 		
-		MapSqlParameterSource map = new MapSqlParameterSource();
+		MapSqlParameterSource parametros = new MapSqlParameterSource();
 		
-		map.addValue("idPaciente", paciente.getIdPaciente());
-		map.addValue("nombre", paciente.getNombre());
-		map.addValue("apellidos", paciente.getApellidos());
-		map.addValue("edad", paciente.getEdad());
-		map.addValue("telefono", paciente.getTelefono());
-		map.addValue("direccion", null);
-		map.addValue("historial", paciente.getHistorial());
+		//parametros.addValue("idPaciente", paciente.getIdPaciente());
+		parametros.addValue("nombre", paciente.getNombre());
+		parametros.addValue("apellidos", paciente.getApellidos());
+		parametros.addValue("edad", paciente.getEdad());
+		parametros.addValue("telefono", paciente.getTelefono());
+		//parametros.addValue("direccion", null);
+		parametros.addValue("historial", paciente.getHistorial());
 		
+	
 		
 		return jdbcTemplate.update("insert into paciente "  
-				+ "(idPaciente, nombre, apellidos, edad, telefono, direccion, historial)"
-				+ "values (:idPaciente, :nombre, :apellidos, :edad, :telefono, :direccion, :historial)", map) == 1;
+				+ "values (null, :nombre, :apellidos, :edad, :telefono, null, :historial)", parametros) == 1;
 	}
 	
 }
