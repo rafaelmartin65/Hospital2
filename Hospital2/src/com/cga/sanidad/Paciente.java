@@ -4,22 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class Paciente {
 
-	
-	//Atributos
+	// Atributos
 	private int idPaciente;
 	private String nombre;
 	private String apellidos;
 	private int edad;
 	private int telefono;
-	//private String direccion;
+	// private String direccion;
 	private Direccion direccion;
 	private String historial;
-	
-	//Constructor vacio
+
+	// Constructor vacio
 	public Paciente() {
 	}
-	
-	//Constructor con parámetros
+
+	// Constructor con parámetros
 	public Paciente(int idPaciente, String nombre, String apellidos, int edad, int telefono, Direccion direccion,
 			String historial) {
 		this.idPaciente = idPaciente;
@@ -50,7 +49,7 @@ public class Paciente {
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
-	
+
 	@Autowired
 	public void setDireccion(Direccion direccion) {
 		this.direccion = direccion;
@@ -59,7 +58,6 @@ public class Paciente {
 	public void setHistorial(String historial) {
 		this.historial = historial;
 	}
-	
 
 	public int getIdPaciente() {
 		return idPaciente;
@@ -94,12 +92,9 @@ public class Paciente {
 		return "Paciente [idPaciente=" + idPaciente + ", nombre=" + nombre + ", apellidos=" + apellidos + ", edad="
 				+ edad + ", telefono=" + telefono + ", direccion=" + direccion + ", historial=" + historial + "]";
 	}
-	
-	public void imprimirHistorial () {
-	System.out.println("Paciente con Historial");
-}
-	
-	
-	
-	
+
+	public void imprimirHistorial() {
+		System.out.println("Paciente con Historial");
+	}
+
 }
