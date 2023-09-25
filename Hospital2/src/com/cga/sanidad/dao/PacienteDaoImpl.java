@@ -51,6 +51,25 @@ public class PacienteDaoImpl implements PacienteDao {
 
 	@Override
 	public List<Paciente> findAll() {
+		// 
+		return jdbcTemplate.query("select * from paciente", new PacienteRowMapper() {
+				
+			
+		});
+	}
+
+
+
+	@Override
+	public Paciente findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public List<Paciente> findByNombre(String nombre) {
 		// TODO Auto-generated method stub
 		return null;
 	}
