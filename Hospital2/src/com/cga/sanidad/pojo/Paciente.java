@@ -89,10 +89,15 @@ public class Paciente {
 
 	@Override
 	public String toString() {
-		return "Paciente [idPaciente=" + idPaciente + "\n" 
-				+ ", nombre=" + nombre + "\n " 
-				+ ", apellidos=" + apellidos + ", edad="
-				+ edad + ", telefono=" + telefono + ", direccion=" + direccion + ", historial=" + historial + "]";
+		return "Datos Paciente \n"
+				+ "------------------"
+				+ "id Paciente= " + idPaciente + "\n" 
+				+ "Nombre= " + nombre + "\n" 
+				+ "Apellidos=" + apellidos + "\n" 
+				+ "Edad= " + edad + "\n" 
+				+ "Telefono= " + telefono + "\n" 
+				+ "Direccion= " + direccion + "\n"
+				+ "Historial= " + historial + "\n";
 	}
 
 	public void imprimirHistorial() {
