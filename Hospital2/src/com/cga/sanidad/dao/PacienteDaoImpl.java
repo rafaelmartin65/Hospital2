@@ -52,10 +52,8 @@ public class PacienteDaoImpl implements PacienteDao {
 	@Override
 	public List<Paciente> findAll() {
 		// 
-		return jdbcTemplate.query("select * from paciente", new PacienteRowMapper() {
-				
-			
-		});
+		return jdbcTemplate.query("select * from paciente", new PacienteRowMapper());
+		
 	}
 
 
@@ -63,15 +61,21 @@ public class PacienteDaoImpl implements PacienteDao {
 	@Override
 	public Paciente findById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return jdbcTemplate.queryForObject("select * from Paciente"
+				+ " where idPaciente = :idPaciente", 
+				new MapSqlParameterSource("idPaciente", id),
+				new PacienteRowMapper());
 	}
 
 
 
 	@Override
 	public List<Paciente> findByNombre(String nombre) {
-		// TODO Auto-generated method stub
-		return null;
+		// Consulta por nombre
+		return jdbcTemplate.query("select * from paciente"
+				+ " where nombre like :nombre", 
+				new MapSqlParameterSource("nombre", "%" + nombre + "%"),
+				new PacienteRowMapper());
 	}
 	
 }

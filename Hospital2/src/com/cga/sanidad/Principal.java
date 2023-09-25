@@ -29,12 +29,26 @@ public class Principal {
 			// comentar agregar pacientes
 			//pacienteDao.save(pac);
 			
+			//Consulta todos los pacientes
 			List<Paciente> pacientes = pacienteDao.findAll();
 			
 			for (Paciente paciente2 : pacientes) {
 				System.out.println("Mostrar: " + paciente2);
 				
 			}
+			
+			//consulta por nombre
+			List<Paciente> pacientes01 = pacienteDao.findByNombre("Pepito");
+			
+			for (Paciente paciente3 : pacientes01) {
+				System.out.println("Nombre = Pepito  " + paciente3);
+				
+			}
+			
+			//consulta por id
+			System.out.println("Paciente con id: " + pacienteDao.findById(10028));
+			System.out.println("Paciente con id: " + pacienteDao.findById(10032));
+			System.out.println("Paciente comienza con 'P': " + pacienteDao.findByNombre("P").toString());
 			
 			// System.out.println("FindAll procedure: " + pacienteDao.findAll());
 			

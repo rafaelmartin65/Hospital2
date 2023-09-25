@@ -89,7 +89,9 @@ public class Paciente {
 
 	@Override
 	public String toString() {
-		return "Paciente [idPaciente=" + idPaciente + ", nombre=" + nombre + ", apellidos=" + apellidos + ", edad="
+		return "Paciente [idPaciente=" + idPaciente + "\n" 
+				+ ", nombre=" + nombre + "\n " 
+				+ ", apellidos=" + apellidos + ", edad="
 				+ edad + ", telefono=" + telefono + ", direccion=" + direccion + ", historial=" + historial + "]";
 	}
 
