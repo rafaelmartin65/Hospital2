@@ -3,6 +3,9 @@ package com.cga.sanidad;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.cga.sanidad.dao.PacienteDao;
+import com.cga.sanidad.pojo.Paciente;
+
 public class Principal {
 
 	public static void main(String[] args) {
