@@ -6,22 +6,20 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Principal {
 
 	public static void main(String[] args) {
-		ApplicationContext apc = new ClassPathXmlApplicationContext("ConfigSpring.xml");
-		
-		
-		
-		Paciente pac = (Paciente) apc.getBean("pac");
-		
+
+		ApplicationContext parametros = new ClassPathXmlApplicationContext("ConfigSpring.xml");
+
+		PacienteDao pacienteDao = (PacienteDao) parametros.getBean("PacienteDao");
+
+		Paciente pac = (Paciente) parametros.getBean("pac");
+
+		System.out.println(pacienteDao.save(pac));
+
+		System.out.println(pac + "\n");
 		pac.imprimirHistorial();
-		
-		System.out.println(pac);
-		
-		
-		
-		((ClassPathXmlApplicationContext)apc).close();
-	
-		}
-		
-		
-	
+
+		((ClassPathXmlApplicationContext) parametros).close();
+
+	}
+
 }

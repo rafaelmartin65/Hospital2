@@ -2,8 +2,9 @@ package com.cga.sanidad;
 
 public interface PacienteDao {
 	
-	public boolean save (Paciente paciente); 
-		
+	public boolean save (Paciente paciente);
+
+
 	
 
 

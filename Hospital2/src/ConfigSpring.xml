@@ -7,9 +7,13 @@
 
 
 		<bean id="pac" class="com.cga.sanidad.Paciente">
-			<property name="idPaciente" value="1001"></property>
+<!-- 			<property name="idPaciente" value="1001"></property> -->
 			<property name="nombre" value="Pepito"></property>
-			<!--<property name="direccion" ref="dir"></property> -->
+			<property name="apellidos" value="Perez"></property>
+			<property name="edad" value="33"></property>
+			<property name="telefono" value="55555555"></property>
+<!-- 			<property name="direccion" ref="dir"></property> -->
+			<property name="historial" value="Primero"></property>
 		
 		</bean>
 
@@ -22,19 +26,20 @@
 			<constructor-arg name="cp" value="38001"></constructor-arg>
 		</bean>  -->
 	
-		<context:component-scan base-package="com.cga.sanidad"></context:component-scan>
 		
+		
+		<context:component-scan base-package="com.cga.sanidad"></context:component-scan>
 		
 		
 		<bean id="dataSource"
 			class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName"
-			value="com.mysql.jdbc.Driver">
+			value="com.mysql.cj.jdbc.Driver">
 		</property>
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/hospital">
 		</property>
-		<property name="username" value="rafael"></property>
+		<property name="username" value="Rafael"></property>
 		<property name="password" value="123456"></property>
 		</bean>
 
