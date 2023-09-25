@@ -8,12 +8,12 @@
 
 		<bean id="pac" class="com.cga.sanidad.pojo.Paciente">
 <!-- 			<property name="idPaciente" value="1001"></property> -->
-			<property name="nombre" value="Pepito"></property>
-			<property name="apellidos" value="Perez"></property>
+			<property name="nombre" value="Maria"></property>
+			<property name="apellidos" value="Acsota"></property>
 			<property name="edad" value="33"></property>
-			<property name="telefono" value="55555555"></property>
+			<property name="telefono" value="66666666"></property>
 <!-- 			<property name="direccion" ref="dir"></property> -->
-			<property name="historial" value="Primero"></property>
+			<property name="historial" value="Segundo"></property>
 		
 		</bean>
 

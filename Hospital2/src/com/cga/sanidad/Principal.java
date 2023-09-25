@@ -3,7 +3,6 @@ package com.cga.sanidad;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
-import org.springframework.jca.cci.CannotGetCciConnectionException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 
 import com.cga.sanidad.dao.PacienteDao;
