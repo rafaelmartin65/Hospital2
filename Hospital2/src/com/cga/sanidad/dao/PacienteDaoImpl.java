@@ -20,7 +20,7 @@ import com.cga.sanidad.pojo.Paciente;
 @Component("PacienteDao")
 public class PacienteDaoImpl implements PacienteDao {
 	
-	static String nombre, apellidos, historial, edad, telefono;
+	
 	
 	private NamedParameterJdbcTemplate jdbcTemplate;
 	
@@ -42,7 +42,7 @@ public class PacienteDaoImpl implements PacienteDao {
 		
 		System.out.println("Datos en parametros: " + parametros.toString());
 		
-		//parametros.addValue("idPaciente", paciente.getIdPaciente());
+		parametros.addValue("idPaciente", paciente.getIdPaciente());
 		
 		
 		//parametros.addValue("nombre", paciente.getNombre());
@@ -134,31 +134,6 @@ public class PacienteDaoImpl implements PacienteDao {
 
 
 
-	@Override
-	public Paciente capturaDatos(Paciente paciente) {
-		// procedimiento captura de datos
-		
-		Paciente pac = new Paciente();
-		
-		
-		nombre = JOptionPane.showInputDialog("Introduce el nombre paciente");
-		pac.setNombre(nombre);
-		
-		apellidos = JOptionPane.showInputDialog("Introduce los apellidos paciente");
-		pac.setApellidos(apellidos);
-		
-		edad = JOptionPane.showInputDialog("Introduce edad del paciente");
-		pac.setEdad(Integer.parseInt(edad));
-		
-		telefono = JOptionPane.showInputDialog("Introduce el telefono del paciente");
-		pac.setTelefono(Integer.parseInt(telefono));
-
-		historial = JOptionPane.showInputDialog("Introduce el historial paciente");
-		pac.setHistorial(historial);
-		
-		
-		
-		return pac;
-	}
+	
 	
 }

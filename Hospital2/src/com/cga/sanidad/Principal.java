@@ -10,13 +10,12 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 
 import com.cga.sanidad.dao.PacienteDao;
-import com.cga.sanidad.dao.PacienteDaoImpl;
 import com.cga.sanidad.pojo.Paciente;
 
 
 public class Principal {
 
-	
+	static String nombre, apellidos, historial, edad, telefono;
 	
 	public static void main(String[] args) {
 		
@@ -27,17 +26,35 @@ public class Principal {
 		PacienteDao pacienteDao = (PacienteDao) parametros.getBean("PacienteDao");
 		
 		
-		// Se crea el objeto paciente
-		Paciente paciente = new Paciente();
 		
-		// Se realiza la captura por pantalla de los datos
-		paciente = pacienteDao.capturaDatos(paciente);
+			// procedimiento captura de datos
+			
+			Paciente pac = new Paciente();
+			
+			
+			nombre = JOptionPane.showInputDialog("Introduce el nombre paciente");
+			pac.setNombre(nombre);
+			
+			apellidos = JOptionPane.showInputDialog("Introduce los apellidos paciente");
+			pac.setApellidos(apellidos);
+			
+			edad = JOptionPane.showInputDialog("Introduce edad del paciente");
+			pac.setEdad(Integer.parseInt(edad));
+			
+			telefono = JOptionPane.showInputDialog("Introduce el telefono del paciente");
+			pac.setTelefono(Integer.parseInt(telefono));
+
+			historial = JOptionPane.showInputDialog("Introduce el historial paciente");
+			pac.setHistorial(historial);
+			
+	
+		
 		
 		// Se muestran por pantalla los datos obtenidos
-		System.out.println("Imprimir datos capturados: " + paciente);
+		System.out.println("*** Imprimir datos capturados: *** " + pac);
 		
 		// Se agregan los datos a la base de datos
-		System.out.println("Añadiendo datos ala base de datos... " + pacienteDao.save(paciente));
+		System.out.println("Añadiendo datos ala base de datos... " + pacienteDao.save(pac));
 		
 		//Paciente pac = (Paciente) parametros.getBean("pac");
 		
