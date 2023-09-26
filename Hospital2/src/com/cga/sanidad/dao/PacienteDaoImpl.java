@@ -42,10 +42,8 @@ public class PacienteDaoImpl implements PacienteDao {
 		
 		System.out.println("Datos en parametros: " + parametros.toString());
 		
-		parametros.addValue("idPaciente", paciente.getIdPaciente());
-		
-		
-		//parametros.addValue("nombre", paciente.getNombre());
+		//parametros.addValue("idPaciente", paciente.getIdPaciente());
+		parametros.addValue("nombre", paciente.getNombre());
 		parametros.addValue("apellidos", paciente.getApellidos());
 		parametros.addValue("edad", paciente.getEdad());
 		parametros.addValue("telefono", paciente.getTelefono());
