@@ -15,5 +15,14 @@ public interface PacienteDao {
 	
 	public List<Paciente> findByNombre(String nombre);
 	
+	public boolean update(Paciente pac);
+	public boolean delete(int idPaciente);
+	
+	public Paciente capturaDatos(Paciente paciente);
+	
+	//public int[] saveAll(List<Paciente> paciente);
+	
+	
+	
 
 }
