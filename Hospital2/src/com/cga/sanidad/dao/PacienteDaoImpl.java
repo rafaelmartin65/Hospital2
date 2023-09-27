@@ -66,7 +66,7 @@ public class PacienteDaoImpl implements PacienteDao {
 				("insert into Pacinte "
 				+ "(nombre, apellidos, edad, dirección, telefono, "
 				+ "historia)"
-				+ "Values (:nombre, :apellidos, :edad, :Ldireccion,"
+				+ "Values (:nombre, :apellidos, :edad, :direccion,"
 				+ ":telefono, :historial)", batchArgs);		
 		
 	}
