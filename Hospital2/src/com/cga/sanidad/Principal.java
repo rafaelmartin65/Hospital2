@@ -2,6 +2,8 @@ package com.cga.sanidad;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
@@ -13,15 +15,49 @@ import com.cga.sanidad.pojo.Paciente;
 
 public class Principal {
 
+	static String nombre, apellidos, historial, edad, telefono;
+	
 	public static void main(String[] args) {
+		
+		
 
 		ApplicationContext parametros = new ClassPathXmlApplicationContext("ConfigSpring.xml");
 
 		PacienteDao pacienteDao = (PacienteDao) parametros.getBean("PacienteDao");
-
-		Paciente pac = (Paciente) parametros.getBean("pac");
 		
-		//System.out.println(pacienteDao.save(pac));
+		
+		
+			// procedimiento captura de datos
+			
+			Paciente pac = new Paciente();
+			
+			
+			nombre = JOptionPane.showInputDialog("Introduce el nombre paciente");
+			pac.setNombre(nombre);
+			
+			apellidos = JOptionPane.showInputDialog("Introduce los apellidos paciente");
+			pac.setApellidos(apellidos);
+			
+			edad = JOptionPane.showInputDialog("Introduce edad del paciente");
+			pac.setEdad(Integer.parseInt(edad));
+			
+			telefono = JOptionPane.showInputDialog("Introduce el telefono del paciente");
+			pac.setTelefono(Integer.parseInt(telefono));
+
+			historial = JOptionPane.showInputDialog("Introduce el historial paciente");
+			pac.setHistorial(historial);
+			
+	
+		
+		
+		// Se muestran por pantalla los datos obtenidos
+		System.out.println("*** Imprimir datos capturados: *** " + pac);
+		
+		// Se agregan los datos a la base de datos
+		System.out.println("Añadiendo datos ala base de datos... " + pacienteDao.save(pac));
+		
+		//Paciente pac = (Paciente) parametros.getBean("pac");
+		
 		
 		
 		
@@ -48,13 +84,13 @@ public class Principal {
 			//consulta por id
 			System.out.println("Paciente con id: " + pacienteDao.findById(10028));
 			System.out.println("Paciente con id: " + pacienteDao.findById(10032));
-			System.out.println("Paciente comienza con 'P': " + pacienteDao.findByNombre("P").toString());
+			//System.out.println("Paciente comienza con 'P': \n" + pacienteDao.findByNombre("P").toString());
 			
 			// System.out.println("FindAll procedure: " + pacienteDao.findAll());
 			
 			
 		}catch (CannotGetJdbcConnectionException e) {
-			System.out.println("Credenciales, Confuiguración!!! ");
+			System.out.println("Credenciales, Configuración!!! ");
 			e.printStackTrace();
 			
 		}catch (DataAccessException ex) {
@@ -64,8 +100,6 @@ public class Principal {
 		
 		}
 
-		// System.out.println(pac + "\n");
-		pac.imprimirHistorial();
 
 		((ClassPathXmlApplicationContext) parametros).close();
 

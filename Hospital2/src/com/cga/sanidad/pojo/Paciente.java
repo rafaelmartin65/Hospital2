@@ -90,10 +90,10 @@ public class Paciente {
 	@Override
 	public String toString() {
 		return "Datos Paciente \n"
-				+ "------------------"
+				+ "------------------\n"
 				+ "id Paciente= " + idPaciente + "\n" 
 				+ "Nombre= " + nombre + "\n" 
-				+ "Apellidos=" + apellidos + "\n" 
+				+ "Apellidos= " + apellidos + "\n" 
 				+ "Edad= " + edad + "\n" 
 				+ "Telefono= " + telefono + "\n" 
 				+ "Direccion= " + direccion + "\n"
