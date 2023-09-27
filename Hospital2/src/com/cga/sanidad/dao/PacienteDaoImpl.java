@@ -56,7 +56,7 @@ public class PacienteDaoImpl implements PacienteDao {
 				+ "values (null, :nombre, :apellidos, :edad, :telefono, null, :historial)", parametros) == 1;
 	}
 	
-	/*@Override
+	@Override
 	public int[] saveAll(List<Paciente> paciente) {
 		SqlParameterSource[] batchArgs = 
 				SqlParameterSourceUtils.createBatch(paciente.toArray());
@@ -67,7 +67,7 @@ public class PacienteDaoImpl implements PacienteDao {
 				+ "Values (:nombre, :apellidos, :edad, :Ldireccion,"
 				+ ":telefono, :historial)", batchArgs);		
 		
-	}*/
+	}
 	
 	
 
