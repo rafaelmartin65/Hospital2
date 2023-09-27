@@ -24,7 +24,7 @@ public interface PacienteDao {
 	//Método delete
 	public boolean delete(int idPaciente);
 	
-	
+	// Método saveAll
 	public int[] saveAll(List<Paciente> paciente);
 	
 	
