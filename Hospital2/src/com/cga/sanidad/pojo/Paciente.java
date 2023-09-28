@@ -31,7 +31,7 @@ public class Paciente {
 	}
 
 	
-
+	// Constructor con parámetros sin id
 	public Paciente(String nombre, String apellidos, int edad, int telefono, Direccion direccion , String historial) {
 		
 		this.nombre = nombre;
