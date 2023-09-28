@@ -1,6 +1,8 @@
 package com.cga.sanidad;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -17,44 +19,77 @@ public class Principal {
 
 	static String nombre, apellidos, historial, edad, telefono;
 	
+	
+	
 	public static void main(String[] args) {
 		
+		// Se crea objeto scanner
+		Scanner sc = new Scanner(System.in);
 		
 
 		ApplicationContext parametros = new ClassPathXmlApplicationContext("ConfigSpring.xml");
-
 		PacienteDao pacienteDao = (PacienteDao) parametros.getBean("PacienteDao");
 		
 		
 		
-			// procedimiento captura de datos
-			
-			Paciente pac = new Paciente();
-			
-			
-			nombre = JOptionPane.showInputDialog("Introduce el nombre paciente");
-			pac.setNombre(nombre);
-			
-			apellidos = JOptionPane.showInputDialog("Introduce los apellidos paciente");
-			pac.setApellidos(apellidos);
-			
-			edad = JOptionPane.showInputDialog("Introduce edad del paciente");
-			pac.setEdad(Integer.parseInt(edad));
-			
-			telefono = JOptionPane.showInputDialog("Introduce el telefono del paciente");
-			pac.setTelefono(Integer.parseInt(telefono));
-
-			historial = JOptionPane.showInputDialog("Introduce el historial paciente");
-			pac.setHistorial(historial);
-			
-	
+		// Crear una lsita de pacientes con ArrayList
+		//List<Paciente> pacientes = new ArrayList<Paciente>();
+		//pacientes.add(new Paciente("Ana","Gutierrez Monte", 35, 659867325, null, "privado"));
+		//pacientes.add(new Paciente("Alberto","Moreno Herrera", 45, 659867325, null, "privado"));
+		//pacientes.add(new Paciente("Margarita","Tabares Perez", 32, 659867325, null, "privado"));
+		
+		//pacienteDao.saveAll(pacientes);
+		
+		//int [] valores = pacienteDao.saveAll(pacientes);
+		//for (int i : valores) {
+		//	System.out.println(("Filas insertadas "
+		//			+ "en la tabla paciente: " + i));
+		//}
+		
+		//for (int i = 0; i < valores.length; i++) {
+		//	System.out.println("Filas insertadas OKOKOK: "
+		//			+ i + " " + pacientes.get(i));
+		//}
 		
 		
-		// Se muestran por pantalla los datos obtenidos
-		System.out.println("*** Imprimir datos capturados: *** " + pac);
 		
-		// Se agregan los datos a la base de datos
-		System.out.println("Añadiendo datos ala base de datos... " + pacienteDao.save(pac));
+		// Despliega menu y se guarda la opción elegida
+		System.out.println("Elije una opción del menu\n");
+		System.out.println("1. Agregar un paciente");
+		System.out.println("2. Agregar un paciente");
+		System.out.println("3. Añadir varios pacientes");
+		int opcion = sc.nextInt();
+		
+		
+		// Realizar el procedimiento según opción elegida
+		switch (opcion) {
+			case 1:
+				//System.out.println("opción 1");
+				
+				Paciente pac = incluirPaciente();
+				
+				// Se agregan los datos a la base de datos
+				System.out.println("Añadiendo datos a la base de datos... " + pacienteDao.save(pac));
+				
+				break;
+				
+			case 2:
+				System.out.println("opción 2");
+				break;
+				
+			case 3:
+				System.out.println("opción 3");
+				break;
+				
+			default:
+				System.out.println("Opción erronea");
+				break;
+		}
+			
+		
+		
+		
+		
 		
 		//Paciente pac = (Paciente) parametros.getBean("pac");
 		
@@ -66,9 +101,9 @@ public class Principal {
 			//pacienteDao.save(pac);
 			
 			//Consulta todos los pacientes
-			List<Paciente> pacientes = pacienteDao.findAll();
+			List<Paciente> pacientesLista = pacienteDao.findAll();
 			
-			for (Paciente paciente2 : pacientes) {
+			for (Paciente paciente2 : pacientesLista) {
 				System.out.println("Mostrar: " + paciente2);
 				
 			}
@@ -104,5 +139,38 @@ public class Principal {
 		((ClassPathXmlApplicationContext) parametros).close();
 
 	}
+	
+	public static Paciente incluirPaciente() {
+		
+		Paciente pac = new Paciente();
+		
+		nombre = JOptionPane.showInputDialog("Introduce el nombre paciente");
+		pac.setNombre(nombre);
+		
+		apellidos = JOptionPane.showInputDialog("Introduce los apellidos paciente");
+		pac.setApellidos(apellidos);
+		
+		edad = JOptionPane.showInputDialog("Introduce edad del paciente");
+		int edad1 = Integer.parseInt(edad);
+		pac.setEdad(edad1);
+		
+		telefono = JOptionPane.showInputDialog("Introduce el telefono del paciente");
+		int telefono1 = Integer.parseInt(telefono);
+		pac.setTelefono(telefono1);
 
+		historial = JOptionPane.showInputDialog("Introduce el historial paciente");
+		pac.setHistorial(historial);
+		
+		Paciente paciente = new Paciente(nombre, apellidos, edad1, telefono1, null, historial);
+		// Se muestran por pantalla los datos obtenidos
+		System.out.println("*** Imprimir datos capturados: *** " + pac);
+		
+		
+		return pac;
+				
+	}
+
+	
 }
+
+ 

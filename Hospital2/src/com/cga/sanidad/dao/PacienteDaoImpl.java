@@ -56,18 +56,20 @@ public class PacienteDaoImpl implements PacienteDao {
 				+ "values (null, :nombre, :apellidos, :edad, :telefono, null, :historial)", parametros) == 1;
 	}
 	
-	/*@Override
+	@Override
 	public int[] saveAll(List<Paciente> paciente) {
 		SqlParameterSource[] batchArgs = 
-				SqlParameterSourceUtils.createBatch(paciente.toArray());
+				SqlParameterSourceUtils.
+				createBatch(paciente.toArray());
 		
-		return jdbcTemplate.batchUpdate("insert into Pacinte "
+		return jdbcTemplate.batchUpdate
+				("insert into Pacinte "
 				+ "(nombre, apellidos, edad, dirección, telefono, "
 				+ "historia)"
-				+ "Values (:nombre, :apellidos, :edad, :Ldireccion,"
+				+ "Values (:nombre, :apellidos, :edad, :direccion,"
 				+ ":telefono, :historial)", batchArgs);		
 		
-	}*/
+	}
 	
 	
 

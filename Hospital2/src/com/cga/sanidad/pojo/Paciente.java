@@ -30,6 +30,18 @@ public class Paciente {
 		this.historial = historial;
 	}
 
+	
+
+	public Paciente(String nombre, String apellidos, int edad, int telefono, Direccion direccion , String historial) {
+		
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.edad = edad;
+		this.telefono = telefono;
+		this.direccion = direccion;
+		this.historial = historial;
+	}
+
 	public void setIdPaciente(int idPaciente) {
 		this.idPaciente = idPaciente;
 	}
