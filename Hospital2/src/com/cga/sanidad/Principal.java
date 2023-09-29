@@ -15,6 +15,7 @@ import com.cga.sanidad.dao.PacienteDao;
 import com.cga.sanidad.pojo.Paciente;
 
 
+
 public class Principal {
 
 	static String nombre, apellidos, historial, edad, telefono;
@@ -32,13 +33,19 @@ public class Principal {
 		
 		
 		
-		// Crear una lsita de pacientes con ArrayList
-		//List<Paciente> pacientes = new ArrayList<Paciente>();
-		//pacientes.add(new Paciente("Ana","Gutierrez Monte", 35, 659867325, null, "privado"));
-		//pacientes.add(new Paciente("Alberto","Moreno Herrera", 45, 659867325, null, "privado"));
-		//pacientes.add(new Paciente("Margarita","Tabares Perez", 32, 659867325, null, "privado"));
+		// Crear una lista de pacientes con ArrayList
+		List<Paciente> pacientes = new ArrayList<Paciente>();
+		pacientes.add(new Paciente("Alberto","Moreno Herrera", 45, 658789459, null, "privado"));
+		pacientes.add(new Paciente("Margarita","Tabares Perez", 32, 687596325, null, "privado"));
+		pacientes.add(new Paciente("Ana","Gutierrez Monte", 35, 659867324, null, "privado"));
+		System.out.println(pacientes.toString());
 		
-		//pacienteDao.saveAll(pacientes);
+		try {
+			pacienteDao.saveAll(pacientes);
+		}catch (Exception e) {
+			System.out.println("Error ***\n" + e.getMessage() + "\n");
+		}
+			
 		
 		//int [] valores = pacienteDao.saveAll(pacientes);
 		//for (int i : valores) {
@@ -56,8 +63,13 @@ public class Principal {
 		// Despliega menu y se guarda la opción elegida
 		System.out.println("Elije una opción del menu\n");
 		System.out.println("1. Agregar un paciente");
-		System.out.println("2. Agregar un paciente");
+		System.out.println("2. Eliminar un paciente");
 		System.out.println("3. Añadir varios pacientes");
+		System.out.println("4. Consultar paciente por id");
+		System.out.println("5. Consultar paciente por nombre");
+		System.out.println("6. Consultar todos los pacientes");
+		System.out.println("\n9. Salir ");
+		
 		int opcion = sc.nextInt();
 		
 		
@@ -81,6 +93,23 @@ public class Principal {
 				System.out.println("opción 3");
 				break;
 				
+			case 4:
+				//consultar pacinte por id
+				System.out.println("Paciente con id: " + pacienteDao.findById(10028));
+				
+			case 5:
+				//consulta por nombre
+				List<Paciente> pacientes01 = pacienteDao.findByNombre("Pepito");
+				
+			case 6: 
+				//Consulta todos los pacientes
+				List<Paciente> pacientesLista = pacienteDao.findAll();
+				
+			case 9:
+				//Salir de la ejecución
+				System.out.println("Fin del programa****");
+				System.exit(0);
+				
 			default:
 				System.out.println("Opción erronea");
 				break;
@@ -89,51 +118,20 @@ public class Principal {
 		
 		
 		
-		
-		
-		//Paciente pac = (Paciente) parametros.getBean("pac");
-		
-		
-		
-		
-		try {
-			// comentar agregar pacientes
-			//pacienteDao.save(pac);
-			
-			//Consulta todos los pacientes
-			List<Paciente> pacientesLista = pacienteDao.findAll();
-			
-			for (Paciente paciente2 : pacientesLista) {
-				System.out.println("Mostrar: " + paciente2);
-				
-			}
-			
-			//consulta por nombre
-			List<Paciente> pacientes01 = pacienteDao.findByNombre("Pepito");
-			
-			for (Paciente paciente3 : pacientes01) {
-				System.out.println("Nombre = Pepito  " + paciente3);
-				
-			}
-			
-			//consulta por id
-			System.out.println("Paciente con id: " + pacienteDao.findById(10028));
-			System.out.println("Paciente con id: " + pacienteDao.findById(10032));
 			//System.out.println("Paciente comienza con 'P': \n" + pacienteDao.findByNombre("P").toString());
 			
-			// System.out.println("FindAll procedure: " + pacienteDao.findAll());
 			
 			
-		}catch (CannotGetJdbcConnectionException e) {
-			System.out.println("Credenciales, Configuración!!! ");
-			e.printStackTrace();
-			
-		}catch (DataAccessException ex) {
-			System.out.println("Error en SQL!!!");
-			ex.printStackTrace();
-			
-		
-		}
+//		}catch (CannotGetJdbcConnectionException e) {
+//			System.out.println("Credenciales, Configuración!!! ");
+//			e.printStackTrace();
+//			
+//		}catch (DataAccessException ex) {
+//			System.out.println("Error en SQL!!!");
+//			ex.printStackTrace();
+//			
+//		
+//		}
 
 
 		((ClassPathXmlApplicationContext) parametros).close();

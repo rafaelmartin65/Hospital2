@@ -1,18 +1,23 @@
 package com.cga.sanidad.dao;
 
+
 import java.util.List;
 
 import javax.sql.DataSource;
 import javax.swing.JOptionPane;
 
+import org.springframework.beans.PropertyBatchUpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.BatchUpdateUtils;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
+import org.springframework.jdbc.object.BatchSqlUpdate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.cga.sanidad.pojo.Paciente;
 
@@ -56,19 +61,20 @@ public class PacienteDaoImpl implements PacienteDao {
 				+ "values (null, :nombre, :apellidos, :edad, :telefono, null, :historial)", parametros) == 1;
 	}
 	
+	
+	@Transactional
 	@Override
 	public int[] saveAll(List<Paciente> paciente) {
 		SqlParameterSource[] batchArgs = 
 				SqlParameterSourceUtils.
 				createBatch(paciente.toArray());
 		
-		return jdbcTemplate.batchUpdate
-				("insert into Pacinte "
-				+ "(nombre, apellidos, edad, dirección, telefono, "
-				+ "historia)"
-				+ "Values (:nombre, :apellidos, :edad, :direccion,"
-				+ ":telefono, :historial)", batchArgs);		
-		
+			return jdbcTemplate.batchUpdate
+					("insert into Paciente "
+					+ "(nombre, apellidos, edad, telefono, direccion, "
+					+ "historial)"
+					+ "Values (:nombre, :apellidos, :edad, :telefono,"
+					+ ":direccion, :historial)", batchArgs);
 	}
 	
 	
