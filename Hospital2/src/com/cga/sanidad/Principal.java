@@ -8,9 +8,6 @@ import javax.swing.JOptionPane;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.CannotGetJdbcConnectionException;
-
 import com.cga.sanidad.dao.PacienteDao;
 import com.cga.sanidad.pojo.Paciente;
 
